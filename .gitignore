@@ -1,2 +1,3 @@
-deploy/models/*
+deploy/models/*.pkl
+deploy/models/*.h5
 research/cleaned_data.csv
