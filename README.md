@@ -17,6 +17,8 @@ train.ipynb
 
 
 ## Libraries used
+- [anaconda](https://www.anaconda.com/)
+- [jupyter-notebook](https://jupyter.org/)
 - [sastrawi](https://github.com/sastrawi/sastrawi)
 - [scikit-learn](https://scikit-learn.org/stable/)
 - [tensorflow](https://www.tensorflow.org/)
