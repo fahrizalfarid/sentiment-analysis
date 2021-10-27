@@ -15,11 +15,7 @@ stemmer = factory.create_stemmer()
 factory_stopword = StopWordRemoverFactory()
 stopword = factory_stopword.create_stop_word_remover()
 
-
-# 'Pak Jokowi dilarang hadir besok karena sejumlah pendemo sudah membludak.'
-kalimat = ' '.join(sys.argv[1:])
 labels = ['Negative','Neutral','Positive']
-
 
 naive_bayes = pickle.load(open("models/naive_bayes.pkl","rb"))
 mlp = pickle.load(open("models/mlp.pkl","rb"))
@@ -60,19 +56,26 @@ def getClean(text):
 
 
 
-cleanSentence = getClean(kalimat)
-tokenizeSentence = tokenize(cleanSentence)
+with open('news.txt','r') as f:
+    content = f.read().splitlines()
 
-naive_bayes_predict = labels[np.int(naive_bayes.predict([cleanSentence]))]
-mlp_predict = labels[np.int(mlp.predict([cleanSentence]))]
-logistic_regression_predict = labels[np.int(logistic_regression.predict([cleanSentence]))]
+    for news in content:
+        cleanSentence = getClean(news)
+        tokenizeSentence = tokenize(cleanSentence)
 
-deep_learning_predict = labels[
-    np.int(
-        np.max(deep_learning_model.predict(tokenizeSentence))
-    )
-]
+        naive_bayes_predict = labels[np.int(naive_bayes.predict([cleanSentence]))]
+        mlp_predict = labels[np.int(mlp.predict([cleanSentence]))]
+        logistic_regression_predict = labels[np.int(logistic_regression.predict([cleanSentence]))]
 
-print('Kalimat : {}, Naive bayes : {}, Multi layer perceptron : {}, Logistic regression : {}, Deep learning : {}'.format(
-    cleanSentence, naive_bayes_predict, mlp_predict, logistic_regression_predict, deep_learning_predict
-))
+        deep_learning_predict = labels[
+            np.int(
+                np.max(deep_learning_model.predict(tokenizeSentence))
+            )
+        ]
+
+        print(len(cleanSentence))
+        print('Naive bayes : {}, Multi layer perceptron : {}, Logistic regression : {}, Deep learning : {}'.format(
+            naive_bayes_predict, mlp_predict, logistic_regression_predict, deep_learning_predict
+        ))
+
+f.close()
