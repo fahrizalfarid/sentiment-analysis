@@ -5,6 +5,9 @@
 conda env create -f env.yml -p /home/user/anaconda3/envs/env_name
 ```
 
+## Run on collab
+train.ipynb
+
 ## Needs to be improved
 - Add more data
 - Manual labelling
