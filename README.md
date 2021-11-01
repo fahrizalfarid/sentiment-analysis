@@ -8,6 +8,9 @@ conda env create -f env.yml -p /home/user/anaconda3/envs/env_name
 ## Run on collab
 train.ipynb
 
+## New improvement model
+![bert-model](https://github.com/fahrizalfarid/sentiment-analysis/images/bert_model/index.PNG?raw=true)
+
 ## Needs to be improved
 - Add more data
 - Manual labelling
