@@ -9,10 +9,12 @@ conda env create -f env.yml -p /home/user/anaconda3/envs/env_name
 train.ipynb
 
 ## New improvement model
-better accuracy
+1. better accuracy
+
 ![bert-model](https://github.com/fahrizalfarid/sentiment-analysis/blob/master/images/bert_model/index.PNG)
 
-auto labelling
+2. auto labelling
+
 ![auto-label](https://github.com/fahrizalfarid/sentiment-analysis/blob/master/images/bert_model/auto-labelling.PNG)
 
 ## Needs to be improved
